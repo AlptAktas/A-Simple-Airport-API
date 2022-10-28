@@ -15,6 +15,15 @@ ___
 
 - **POST airline:** http://localhost:8080/api/airline
 
+Örnek:
+
+```
+{
+    "name": "Sun Express",  //airline name
+    "code": "XQ"    //airline code
+}
+```
+
 ___
 ## **Havaalanları**
 
@@ -27,6 +36,14 @@ ___
 
 - **POST airport:** http://localhost:8080/api/airport
 
+Örnek:
+
+```
+{
+    "name": "Bodrum Havalimanı",    //airport name
+    "code": "BJV"   //airport code
+}
+```
 ___
 ## **Rotalar**
 
@@ -36,6 +53,15 @@ ___
 - **GET route by id:** http://localhost:8080/api/route/id={id}
 
 - **POST route:** http://localhost:8080/api/route
+
+Örnek:
+
+```
+{
+    "fromAirportCode": "SAW",   //departure airport code
+    "toAirportCode": "BJV"  //destination airport code
+}
+```
 
 ___
 ## **Uçuşlar**
@@ -53,11 +79,36 @@ ___
 
 - **POST flight:** http://localhost:8080/api/flight
 
+Örnek:
+
+```
+{
+    "airlineCode":"PGS",        //airline code
+    "flightNumber":"PGS501",    //flight number
+    "fromAirportCode": "IST",   //departure airport code
+    "toAirportCode": "SAW",     //destination airport code
+    "capacity": "19",           //capacity
+    "price": "1000"             //price
+}
+```
+
 ___
 ## **Satın Alma**
 
 
 - **POST buyout:** http://localhost:8080/api/buyout
+
+Örnek:
+
+```
+{
+    "flightNumber": "PGS501",               //flight number
+    "cardHolderName": "apppals",            //card holder name
+    "cardNumber":"bmö1231923ycc12372137a",  //card number
+    "lastDate": "22.10.22",                 //card last valid date
+    "cv":"213"                              //cv???
+}
+```
 
 ___
 ## **Biletler**

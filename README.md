@@ -15,7 +15,7 @@ ___
 
 - **POST airline:** http://localhost:8080/api/airline
 
-Örnek:
+- - Örnek:
 
 ```
 {

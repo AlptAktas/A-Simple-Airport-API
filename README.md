@@ -15,7 +15,7 @@ ___
 
 - **POST airline:** http://localhost:8080/api/airline
 
--  Örnek:
+- - Örnek:
 
 ```
 {
@@ -36,7 +36,7 @@ ___
 
 - **POST airport:** http://localhost:8080/api/airport
 
-  - Örnek:
+- - Örnek:
 
 ```
 {
@@ -54,7 +54,7 @@ ___
 
 - **POST route:** http://localhost:8080/api/route
 
-Örnek:
+- - Örnek:
 
 ```
 {
@@ -79,7 +79,7 @@ ___
 
 - **POST flight:** http://localhost:8080/api/flight
 
-Örnek:
+- - Örnek:
 
 ```
 {
@@ -98,7 +98,7 @@ ___
 
 - **POST buyout:** http://localhost:8080/api/buyout
 
-Örnek:
+- - Örnek:
 
 ```
 {

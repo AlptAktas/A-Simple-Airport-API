@@ -9,9 +9,9 @@ ___
 
 - **GET all airlines:** http://localhost:8080/api/airline
 
-- **GET airlines by id:** http://localhost:8080/api/airline?id={id}
+- **GET airlines by id:** http://localhost:8080/api/airline/id={id}
 
-- **GET airlines by code:** http://localhost:8080/api/airline?code={code}
+- **GET airlines by code:** http://localhost:8080/api/airline/code={code}
 
 - **POST airline:** http://localhost:8080/api/airline
 
@@ -21,9 +21,9 @@ ___
 
 - **GET all airports:** http://localhost:8080/api/airport
 
-- **GET airport by id:** http://localhost:8080/api/airport?id={id}
+- **GET airport by id:** http://localhost:8080/api/airport/id={id}
 
-- **GET airport by code:** http://localhost:8080/api/airport?code={code}
+- **GET airport by code:** http://localhost:8080/api/airport/code={code}
 
 - **POST airport:** http://localhost:8080/api/airport
 
@@ -33,7 +33,7 @@ ___
 
 - **GET all routes:** http://localhost:8080/api/route
 
-- **GET route by id:** http://localhost:8080/api/route?id={id}
+- **GET route by id:** http://localhost:8080/api/route/id={id}
 
 - **POST route:** http://localhost:8080/api/route
 
@@ -43,13 +43,13 @@ ___
 
 - **GET all flights:** http://localhost:8080/api/flight
 
-- **GET flight by id:** http://localhost:8080/api/flight/?id={id}
+- **GET flight by id:** http://localhost:8080/api/flight/id={id}
 
-- **GET flight by airline code:** http://localhost:8080/api/flight?airline={airlineCode}
+- **GET flight by airline code:** http://localhost:8080/api/flight/airline={airlineCode}
 
-- **GET flight by departure airport code:** http://localhost:8080/api/flight?departure={fromAirportCode}
+- **GET flight by departure airport code:** http://localhost:8080/api/flight/departure={fromAirportCode}
 
-- **GET flight by destination airport code:** http://localhost:8080/api/flight?dest={toAirportCode}
+- **GET flight by destination airport code:** http://localhost:8080/api/flight/dest={toAirportCode}
 
 - **POST flight:** http://localhost:8080/api/flight
 
@@ -65,7 +65,7 @@ ___
 
 - **GET tickets:** http://localhost:8080/api/ticket
 
-- **GET ticket by id:** http://localhost:8080/api/ticket?id={id}
+- **GET ticket by id:** http://localhost:8080/api/ticket/id={id}
 
-- **DEL ticket by id:** http://localhost:8080/api/ticket?id={id}
+- **DEL ticket by id:** http://localhost:8080/api/ticket/id={id}
 

@@ -1,0 +1,12 @@
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/CaseAppApplication.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/controller/Controller.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/model/Flight.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/repository/AirportRepository.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/model/Airport.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/model/Payout.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/model/Route.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/repository/FlightRepository.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/repository/AirlineRepository.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/model/Airline.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/repository/PayoutRepository.java
+/home/alp/Desktop/case_app/src/main/java/com/finartz/case_app/repository/RouteRepository.java

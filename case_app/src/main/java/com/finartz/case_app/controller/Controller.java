@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +39,10 @@ public class Controller {
 	@Autowired
 	PayoutRepository payoutRepository; 
 	
+	@Autowired
+	TicketRepository ticketRepository; 
+	
+	
 	/*
 	@PostMapping("/airlines")
 	public Airline createAirline(@RequestBody Airline airline) {
@@ -62,7 +67,7 @@ public class Controller {
 	*/
 	
 	//get all airlines
-	@GetMapping("/airlines")
+	@GetMapping("/airline")
 	public ResponseEntity<List<Airline>> getAllAirlines() {
 		
 		try {
@@ -82,7 +87,7 @@ public class Controller {
 	}
 	
 	//get airline by id
-	@GetMapping("/airlines/id={id}")
+	@GetMapping("/airline/id={id}")
 	public ResponseEntity<Airline> getAirlineById(@PathVariable(value = "id") Long id) {
 		
 		Optional<Airline> airline = airlineRepository.findById(id);
@@ -96,7 +101,7 @@ public class Controller {
 	 }
 		
 	//get airline by code
-	@GetMapping("/airlines/code={code}")
+	@GetMapping("/airline/code={code}")
 	public ResponseEntity<Airline> getAirlineByCode(@PathVariable(value = "code") String code) {
 		
 		Optional<Airline> airline = airlineRepository.findByCode(code);
@@ -110,7 +115,7 @@ public class Controller {
 
 	 }
 	
-	@PostMapping("/airlines")
+	@PostMapping("/airline")
 	public ResponseEntity<Airline> postAirline(@RequestBody Airline airline) {
 		
 		Optional<Airline> airline_test = airlineRepository.findByCode(airline.getCode());
@@ -120,16 +125,16 @@ public class Controller {
 		}
 		
 		if (airline_test.isPresent()) {
-			return new ResponseEntity<>(HttpStatus.CONFLICT);
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		
-		return new ResponseEntity<>(airlineRepository.save(airline), HttpStatus.OK);
+		return new ResponseEntity<>(airlineRepository.save(airline), HttpStatus.CREATED);
 
 	 }
 	
 	
 	//get all airports
-	@GetMapping("/airports")
+	@GetMapping("/airport")
 	public ResponseEntity<List<Airport>> getAllAirports() {
 			
 		try {
@@ -149,7 +154,7 @@ public class Controller {
 	}
 	
 	//get airport by id
-	@GetMapping("/airports/id={id}")
+	@GetMapping("/airport/id={id}")
 	public ResponseEntity<Airport> getAirportById(@PathVariable(value = "id") Long id) {
 		
 		Optional<Airport> airport = airportRepository.findById(id);
@@ -163,7 +168,7 @@ public class Controller {
 	 }
 		
 	//get airport by code
-	@GetMapping("/airports/code={code}")
+	@GetMapping("/airport/code={code}")
 	public ResponseEntity<Airport> getAirportByCode(@PathVariable(value = "code") String code) {
 		
 		Optional<Airport> airport = airportRepository.findByCode(code);
@@ -177,7 +182,7 @@ public class Controller {
 
 	 }
 	
-	@PostMapping("/airports")
+	@PostMapping("/airport")
 	public ResponseEntity<Airport> postAirport(@RequestBody Airport airport) {
 		
 		Optional<Airport> airport_list = airportRepository.findByCode(airport.getCode());
@@ -188,16 +193,16 @@ public class Controller {
 		}
 		
 		if (airport_list.isPresent()) {
-			return new ResponseEntity<>(HttpStatus.CONFLICT);
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		
 		
-		return new ResponseEntity<>(airportRepository.save(airport), HttpStatus.OK);
+		return new ResponseEntity<>(airportRepository.save(airport), HttpStatus.CREATED);
 
 	 }
 	
 	//get all routes
-	@GetMapping("/routes")
+	@GetMapping("/route")
 	public ResponseEntity<List<Route>> getAllRoutes() {
 		
 		try {
@@ -217,7 +222,7 @@ public class Controller {
 	}
 	
 	//get route by id
-	@GetMapping("/routes/id={id}")
+	@GetMapping("/route/id={id}")
 	public ResponseEntity<Route> getRoutebyId(@PathVariable(value = "id") Long id) {
 		
 		Optional<Route> route = routeRepository.findById(id);
@@ -231,7 +236,7 @@ public class Controller {
 	 }
 	
 	//post route
-	@PostMapping("/routes")
+	@PostMapping("/route")
 	public ResponseEntity<Route> postRoute(@RequestBody Route route) {
 		
 		Optional<Airport> from_airport = airportRepository.findByCode(route.getFromAirportCode());
@@ -245,7 +250,7 @@ public class Controller {
 		}
 		
 		if (route_test.isPresent()) {
-			return new ResponseEntity<>(HttpStatus.CONFLICT);
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		
 		if (from_airport.isPresent() && to_airport.isPresent()) {
@@ -254,15 +259,15 @@ public class Controller {
 			route.setFromAirportName(fr_a.getName());
 			route.setToAirportName(tr_a.getName());
 			
-			return new ResponseEntity<>(routeRepository.save(route), HttpStatus.OK);
+			return new ResponseEntity<>(routeRepository.save(route), HttpStatus.CREATED);
 			
 		}
 		
-		return new ResponseEntity<>(HttpStatus.CONFLICT);
+		return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE );
 	}
 	
 	//get all flights
-	@GetMapping("/flights")
+	@GetMapping("/flight")
 	public ResponseEntity<List<Flight>> getAllFlights() {
 			
 		try {
@@ -282,7 +287,7 @@ public class Controller {
 	}
 		
 	//get flight by id
-	@GetMapping("/flights/id={id}")
+	@GetMapping("/flight/id={id}")
 	public ResponseEntity<Flight> getFlightById(@PathVariable(value = "id") Long id) {
 			
 		Optional<Flight> flight = flightRepository.findById(id);
@@ -296,7 +301,7 @@ public class Controller {
 	}
 	
 	//get flight by airline
-	@GetMapping("/flights/airline={airlineCode}")
+	@GetMapping("/flight/airline={airlineCode}")
 	public ResponseEntity<Flight> getFlightByAirline(@PathVariable(value = "airlineCode") String airlineCode) {
 			
 		Optional<Flight> flight = flightRepository.findByAirlineCode(airlineCode);
@@ -310,7 +315,7 @@ public class Controller {
 	}
 	
 	//get flight by departure airport
-	@GetMapping("/flights/departure={fromAirportCode}")
+	@GetMapping("/flight/departure={fromAirportCode}")
 	public ResponseEntity<Flight> getFlightByFromAirportCode(@PathVariable(value = "fromAirportCode") String fromAirportCode) {
 			
 		Optional<Flight> flight = flightRepository.findByFromAirportCode(fromAirportCode);
@@ -324,7 +329,7 @@ public class Controller {
 	}
 	
 	//get flight by destination airport
-	@GetMapping("/flights/dest={toAirportCode}")
+	@GetMapping("/flight/dest={toAirportCode}")
 	public ResponseEntity<Flight> getFlightByToAirportCode(@PathVariable(value = "toAirportCode") String toAirportCode) {
 			
 		Optional<Flight> flight = flightRepository.findByToAirportCode(toAirportCode);
@@ -338,7 +343,7 @@ public class Controller {
 	}
 	
 	//post flight
-	@PostMapping("/flights")
+	@PostMapping("/flight")
 	public ResponseEntity<Flight> postFlight(@RequestBody Flight flight) {
 		
 		Optional<Flight> flight_test = flightRepository.findByFlightNumber(flight.getFlightNumber());
@@ -358,7 +363,7 @@ public class Controller {
 		
 		if (flight_test.isPresent()) {
 			
-			return new ResponseEntity<>(HttpStatus.CONFLICT);
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 			
 		if (from_airport.isEmpty() && to_airport.isEmpty()) {
@@ -383,10 +388,10 @@ public class Controller {
 		flight.setToAirportCode(tr_a.getCode());
 		
 			
-		return new ResponseEntity<>(flightRepository.save(flight), HttpStatus.OK);
+		return new ResponseEntity<>(flightRepository.save(flight), HttpStatus.CREATED);
 	}
-	//post payout
-	@PostMapping("/payout")
+	//post buyout
+	@PostMapping("/buyout")
 	public ResponseEntity<Payout> postPayout(@RequestBody Payout payout) {
 		
 		Optional<Flight> flight = flightRepository.findByFlightNumber(payout.getFlightNumber());
@@ -395,9 +400,61 @@ public class Controller {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		flight.get().updatePrice();
-		return new ResponseEntity<>(payoutRepository.save(payout), HttpStatus.OK);
+		Flight f = flight.get();
+		payout.setFlightID(f.getID());
+		payout.setTicketOwnerName(payout.getCardHolderName());
+		f.updatePrice();
+		flightRepository.save(f);
+		
+		Ticket ticket = new Ticket(payout.getTicketOwnerName(), payout.getFlightID(), payout.getFlightNumber());
+		ticketRepository.save(ticket);
+		
+		return new ResponseEntity<>(payoutRepository.save(payout), HttpStatus.CREATED);
+	}
+
+	//get ticket
+	@GetMapping("/ticket")
+	public ResponseEntity<List<Ticket>> getAllTickets() {
+			
+		try {
+			List<Ticket> list = ticketRepository.findAll();
+				
+			if (list.isEmpty() || list.size() == 0) {
+					
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+				
+			return new ResponseEntity<>(list, HttpStatus.OK);
+				
+		} catch (Exception e) {
+				
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
+	//get ticket by id
+	@GetMapping("/ticket/id={id}")
+	public ResponseEntity<Ticket> getTicket(@PathVariable(value = "id") Long id) {
+			
+		Optional<Ticket> ticket = ticketRepository.findById(id);
+			
+		if (ticket.isPresent()) {
+			return new ResponseEntity<>(ticket.get(), HttpStatus.OK);
+		}
+			
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+	}
+	
+	@DeleteMapping("/ticket/id={id}")
+	public ResponseEntity<Ticket> deleteTicket(@PathVariable("id") long id) {
+		try {
+			ticketRepository.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 }

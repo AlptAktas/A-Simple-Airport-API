@@ -19,6 +19,12 @@ final public class Payout {
 	@Column(name = "flightNumber")
 	private String flightNumber;
 	
+	@Column(name = "flightID")
+	private Long flightID;
+	
+	@Column(name = "ticketOwnerName")
+	private String ticketOwnerName;
+	
 	@Column(name = "cardHolderName")
 	private String cardHolderName;
 	
@@ -47,6 +53,34 @@ final public class Payout {
 	//get id
 	public long getID() {
 		return this.id;
+	}
+	
+	//get flight number
+	public String getFlightNumber() {
+		return this.flightNumber;
+	}
+	
+	//set flight number
+	public void setFlightNumber(String flightNumber) {
+		this.flightNumber = flightNumber;
+	}
+	
+	//get flight id
+	public Long getFlightID() {
+		return flightID;
+	}
+	
+	//set flight id
+	public void setFlightID(Long flightID) {
+		this.flightID = flightID;
+	}
+	
+	public String getTicketOwnerName() {
+		return ticketOwnerName;
+	}
+	
+	public void setTicketOwnerName(String ticketOwnerName) {
+		this.ticketOwnerName = ticketOwnerName;
 	}
 	
 	//get card holder name
@@ -90,16 +124,6 @@ final public class Payout {
 		this.cv = cv;
 	}
 	
-	//get flight number
-	public String getFlightNumber() {
-		return this.flightNumber;
-	}
-	
-	//set flight number
-	public void setFlightNumber(String flightNumber) {
-		this.flightNumber = flightNumber;
-	}
-	
 	//replace the number
 	private String rep(String no) {
 		if (no.matches("^[0-9]+$")) {
@@ -110,8 +134,8 @@ final public class Payout {
 	
 	// mask the number
 	private String mask(String no) {
-		final int s_lenght = 6;   //first digit of card you don't want to mask
-	    final int f_length = 4;    //last digit of card you don't want to mask
+		final int s_lenght = 6;   
+	    final int f_length = 4;
 	    int masked_length = no.length() - (s_lenght + f_length);
 		StringBuilder str = new StringBuilder();
 		for (int i = 0; i < masked_length; i++) {

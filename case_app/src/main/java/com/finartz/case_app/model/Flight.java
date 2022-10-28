@@ -58,7 +58,7 @@ public class Flight {
 		this.fromAirportCode = fromAirportCode;
 		this.toAirportCode = toAirportCode;
 		this.capacity = capacity;
-		this.setFirstCapacity(capacity);
+		//this.setFirstCapacity(capacity);
 		this.price = price;
 		
 	}
@@ -76,7 +76,7 @@ public class Flight {
 		this.toAirportName = toAirportName;
 		this.toAirportCode = toAirportCode;
 		this.capacity = capacity;
-		this.setFirstCapacity(capacity);
+		//this.setFirstCapacity(capacity);
 		this.price = price;
 	}
 	
@@ -163,6 +163,7 @@ public class Flight {
 	//set capacity
 	public void setCapacity(int cap) {
 		this.capacity = cap;
+		this.firstCapacity = this.capacity;
 	}
 	
 	//get price
@@ -178,16 +179,16 @@ public class Flight {
 	public int getFirstCapacity() {
 		return firstCapacity;
 	}
-
+/*
 	public void setFirstCapacity(int capacity) {
-		this.firstCapacity = capacity;
-	}
+		
+	}*/
 	
 	public void updatePrice() {
 		if (this.capacity <= (this.firstCapacity*0.9)) {
 			price = price * 1.1;
-			this.setFirstCapacity(capacity);
 		}
+		capacity = capacity - 1;
 	}
 	
 }

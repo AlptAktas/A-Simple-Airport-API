@@ -41,12 +41,12 @@ public class Route {
 	}
 
 	//get route id
-	public long getID() {
+	public long getId() {
 		return this.id;
 	}
 	
 	//get from airport name
-	public String getFfromAirportName() {
+	public String getFromAirportName() {
 		return this.fromAirportName;
 	}
 	

@@ -6,10 +6,9 @@ base URI: http://localhost:8080/api
 _________________________________
 /////Havayolları//////
 
-GET all airlines: http://localhost:8080/api/airline
-GET airlines by id: http://localhost:8080/api/airline?id={id}
-GET airlines by code: http://localhost:8080/api/airline?code={code}
-
+GET all airlines: http://localhost:8080/api/airline     \n
+GET airlines by id: http://localhost:8080/api/airline?id={id}   \n
+GET airlines by code: http://localhost:8080/api/airline?code={code}   \n
 POST airline: http://localhost:8080/api/airline
 
 ________________________________

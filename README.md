@@ -1,54 +1,71 @@
----------API Dökümantasyon----------------
+# **API Dökümantasyon**
+___
 
-base URI: http://localhost:8080/api
+**Base URI:** http://localhost:8080/api
+
+___
+## **Havayolları**
 
 
-_________________________________
-/////Havayolları//////
+- **GET all airlines:** http://localhost:8080/api/airline
 
-GET all airlines: http://localhost:8080/api/airline     \n
-GET airlines by id: http://localhost:8080/api/airline?id={id}   \n
-GET airlines by code: http://localhost:8080/api/airline?code={code}   \n
-POST airline: http://localhost:8080/api/airline
+- **GET airlines by id:** http://localhost:8080/api/airline?id={id}
 
-________________________________
-/////Havaalanları/////
+- **GET airlines by code:** http://localhost:8080/api/airline?code={code}
 
-GET all airports: http://localhost:8080/api/airport
-GET airport by id: http://localhost:8080/api/airport?id={id}
-GET airport by code: http://localhost:8080/api/airport?code={code}
+- **POST airline:** http://localhost:8080/api/airline
 
-POST airport: http://localhost:8080/api/airport
+___
+## **Havaalanları**
 
-_______________________________
-/////Rotalar/////
 
-GET all routes: http://localhost:8080/api/route
-GET route by id: http://localhost:8080/api/route?id={id}
+- **GET all airports:** http://localhost:8080/api/airport
 
-POST route: http://localhost:8080/api/route
+- **GET airport by id:** http://localhost:8080/api/airport?id={id}
 
-_______________________________
-/////Uçuşlar/////
+- **GET airport by code:** http://localhost:8080/api/airport?code={code}
 
-GET all flights: http://localhost:8080/api/flight
-GET flight by id: http://localhost:8080/api/flight/?id={id}
-GET flight by airline code: http://localhost:8080/api/flight?airline={airlineCode}
-GET flight by departure airport code: http://localhost:8080/api/flight?departure={fromAirportCode}
-GET flight by destination airport code: http://localhost:8080/api/flight?dest={toAirportCode}
+- **POST airport:** http://localhost:8080/api/airport
 
-POST flight: http://localhost:8080/api/flight
+___
+## **Rotalar**
 
-________________________________
-/////Satın Alma/////
 
-POST buyout: http://localhost:8080/api/buyout
+- **GET all routes:** http://localhost:8080/api/route
 
-_______________________________
-/////Biletler//////
+- **GET route by id:** http://localhost:8080/api/route?id={id}
 
-GET tickets: http://localhost:8080/api/ticket
-GET ticket by id: http://localhost:8080/api/ticket?id={id}
+- **POST route:** http://localhost:8080/api/route
 
-DEL ticket by id: http://localhost:8080/api/ticket?id={id}
+___
+## **Uçuşlar**
+
+
+- **GET all flights:** http://localhost:8080/api/flight
+
+- **GET flight by id:** http://localhost:8080/api/flight/?id={id}
+
+- **GET flight by airline code:** http://localhost:8080/api/flight?airline={airlineCode}
+
+- **GET flight by departure airport code:** http://localhost:8080/api/flight?departure={fromAirportCode}
+
+- **GET flight by destination airport code:** http://localhost:8080/api/flight?dest={toAirportCode}
+
+- **POST flight:** http://localhost:8080/api/flight
+
+___
+## **Satın Alma**
+
+
+- **POST buyout:** http://localhost:8080/api/buyout
+
+___
+## **Biletler**
+
+
+- **GET tickets:** http://localhost:8080/api/ticket
+
+- **GET ticket by id:** http://localhost:8080/api/ticket?id={id}
+
+- **DEL ticket by id:** http://localhost:8080/api/ticket?id={id}
 
